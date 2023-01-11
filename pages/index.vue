@@ -37,10 +37,12 @@
 <script setup>
 
 // fetch products
-// /category/electronics
-const { data: products } = await useFetch('/api/products?limit=4')
+const { data: products } = await useFetch('https://fakestoreapi.com/products/category/electronics?limit=4')
+
+// test local mock data
+// const { data: products } = await useFetch('/api/products?limit=4')
 
 // fetch current currency
-const { data: currency } = await useFetch('/api/currency')
+// const { data: currency } = await useFetch('/api/currency')
 // example: 1$ - {{  currency.RUB.value  }}
 </script>

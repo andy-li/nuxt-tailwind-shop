@@ -1,4 +1,6 @@
-# Nuxt 3 - Simple shop with Tailwind and mock data
+# Nuxt 3 - Simple shop with Tailwind and mock data from Fake Store API
+
+![Watch Now](screen.png)
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
