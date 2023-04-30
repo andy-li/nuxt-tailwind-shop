@@ -49,10 +49,11 @@ useHead({
 
 // fetch products
 // /category/electronics
-const { data: products } = await useFetch('https://fakestoreapi.com/products')
+// const { data: products } = await useFetch('https://fakestoreapi.com/products')
 
 // local mock 
-// const { data: products } = await useFetch('/api/products')
+const { data } = await useFetch('/api/products')
+const products = data.value;
 
 const { data: categories } = await useFetch('https://fakestoreapi.com/products/categories')
 </script>

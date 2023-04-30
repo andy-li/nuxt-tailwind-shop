@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
   app: {
     head: {
-      title: "Nuxt Shop",
+      title: "Electronics Shop",
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         { name: "description", content: "Prototype for e-commerce site" },

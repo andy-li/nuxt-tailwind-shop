@@ -1,63 +1,7 @@
 export default defineEventHandler((event) => {
-  const { limit } = getQuery(event);
+  const { limit, id } = getQuery(event);
 
-  // For home page
-  if (limit == 4) {
-    return [
-      {
-        id: 1,
-        title: "Apple iPhone 14 128GB",
-        price: 1090.95,
-        description: "Perfect phone for everyday use and walks in the forest.",
-        category: "electronics",
-        image: "/img/products/2.png",
-        rating: {
-          rate: 3.9,
-          count: 120,
-        },
-      },
-      {
-        id: 2,
-        title: "realme 9 128GB",
-        price: 122.3,
-        description: "Perfect phone for everyday use and walks in the forest",
-        category: "electronics",
-        image: "/img/products/1.png",
-        rating: {
-          rate: 4.1,
-          count: 259,
-        },
-      },
-      {
-        id: 3,
-        title: "iPhone 13",
-        price: 550.99,
-        description:
-          "iPhone 13. Lightning-fast A15 Bionic chip. Durable design. Superfast 5G And a bright Super Retina XDR display.",
-        category: "electronics",
-        image: "/img/products/3.webp",
-        rating: {
-          rate: 4.7,
-          count: 500,
-        },
-      },
-      {
-        id: 4,
-        title: "Motorola Moto G Stylus 5G",
-        price: 150.99,
-        description:
-          "128GB of storage. Never give storage a second thought. With 128 GB built in, you have tons of room for your sketches, notes, photos, movies, music, and everything else. And you can always add up to 1 TB more using a microSD card.",
-        category: "men's clothing",
-        image: "/img/products/4.jpg",
-        rating: {
-          rate: 2.1,
-          count: 430,
-        },
-      },
-    ];
-  }
-
-  return [
+  const products = [
     {
       id: 1,
       title: "Apple iPhone 14 128GB",
@@ -322,4 +266,15 @@ export default defineEventHandler((event) => {
       },
     },
   ];
+
+  if (id) {
+    return products.filter((product) => product.id == id);
+  }
+
+  // For home page
+  if (limit) {
+    return products.slice(0, limit);
+  }
+
+  return products;
 });

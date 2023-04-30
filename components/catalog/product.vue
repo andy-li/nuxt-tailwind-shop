@@ -1,7 +1,7 @@
 <script setup>
 import { useCartStore } from "@/stores/cart";
 
-defineProps({
+const props = defineProps({
   image: String,
   title: String,
   id: Number,
@@ -10,6 +10,28 @@ defineProps({
 });
 
 const storeCart = useCartStore();
+
+const priceNum = props.price.replace(/\$/g, "")
+  ? parseInt(props.price.replace(/\$/g, ""))
+  : undefined;
+
+const addProductToCart = () => {
+  // add product
+  storeCart.addProduct({
+    image: props.image,
+    title: props.title,
+    id: props.id,
+    category: props.category,
+    price: priceNum,
+    qty: 1,
+  });
+
+  // show cart
+  storeCart.toggleVisible(true);
+
+  // save cart in local storage
+  storeCart.saveCart();
+};
 </script>
 
 <template>
@@ -27,7 +49,6 @@ const storeCart = useCartStore();
       <div>
         <h3 class="text-sm text-gray-700">
           <nuxt-link :to="`/products/${id}`">
-            <span aria-hidden="true" class="absolute inset-0"></span>
             {{ title }}
           </nuxt-link>
         </h3>
@@ -37,20 +58,7 @@ const storeCart = useCartStore();
     </div>
 
     <div class="flex justify-end">
-      <button
-        @click="
-          storeCart.addProduct({
-            image,
-            title,
-            id,
-            category,
-            price,
-          })
-        "
-        class="btn"
-      >
-        Add to cart
-      </button>
+      <button @click="addProductToCart" class="btn">Add to cart</button>
     </div>
   </div>
 </template>
