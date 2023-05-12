@@ -1,6 +1,6 @@
 # Nuxt 3 - Simple shop with Tailwind and mock data from Fake Store API
 
-[![Screen](screen.png)](https://legendary-cascaron-99edee.netlify.app/)
+[![Screen](screen.png)](https://electronics-shop.netlify.app/)
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
